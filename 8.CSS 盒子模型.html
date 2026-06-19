@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 盒子模型</title>
+    <style>
+        .border-demo {
+            background-color: yellow;
+            width: 300px;
+            height: 200px;
+            border-style: solid dashed dotted double;  /*上右下左(顺时针)*/
+            border-width: 10px 5px 20px 40px;  /*上右下左(顺时针)*/
+            border-color: blueviolet brown;  
+
+            border-left: 10px solid green;  /*单独设置左边框*/
+            border-top-color: red;  /*单独设置上边框颜色*/
+            border-bottom-color: pink;  /*单独设置下边框颜色*/
+        }
+        .demo {
+            background-color: aqua;
+            display: inline-block;
+            border: 5px solid yellowgreen;  /*实线solid 虚线dashed 点线dotted 双实线double*/
+            padding: 50px;  /*内边距*/
+            margin: 40px;  /*外边距*/
+
+        }   
+        .demo::after {
+            content: " \A 学习也在一起了";  /*内容*/
+            white-space: pre;  /*保留换行符*/
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="demo">B 站在一起了</div>
+    <div class="border-demo">这是一个边框示例</div>
+
+</body>
+
+</html>
+
+<!--    
+
+    content 只能用在 ::before 和 ::after 上，不能直接用。
+    用法	例子
+    ::before	在元素内容前插入	.demo::before { content: "前缀"; }
+    ::after	在元素内容后插入	.demo::after { content: "后缀"; }
+    ::before + 图标	插入 Unicode 图标	content: "\2605";
+
+    盒子模型相关属性
+    内容（Content)
+        盒子包含的实际内容，比如文本、图片等。
+    内边距(Padding）
+        围绕在内容的内部，是内容与边框之间的空间。可以使用padding属性来设置。
+    边框（Border）
+        围绕在内边距的外部，是盒子的边界。可以使用border属性来设置。
+    外边距(Margin)
+        围绕在边框的外部，是盒子与其他元素之间的空间。可以使用margin属性来设置。
+
+
+
+   white-space	英文：白色空间（空格、换行、Tab 等空白字符）
+    pre	英文：preserve（保留）的缩写    
+    
+    \A 是一个“换行符”，但浏览器在默认情况下会把连续的空白符（空格、换行符）压缩成一个空格。
+    white-space: pre 告诉浏览器“保留这些换行符，不要压缩”。
+
+
+-->

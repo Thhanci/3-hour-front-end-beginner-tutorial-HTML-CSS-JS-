@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 常用属性</title>
+
+    <style>
+        .block{
+            /*    display: block;    强制变成块级元素 */   
+            width: 150px;
+            height: 100px;
+            background-color: aqua;
+        }
+
+        .inline{
+            background-color: brown;
+        /*    
+            行内元素的宽度高度只和行内内容有关，故以下无效修改
+            width: 150px;
+            height: 100px;
+        */
+        }
+
+        .inline-block{
+            width: 100px;
+            height: 150px;
+        }
+
+        .div-inline{
+            display: inline;
+            background-color: aquamarine;            
+        }
+
+        .span-inline-block{
+            display: inline-block;  /*block    none  */
+            background-color: blueviolet;
+            width: 50px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <h1 style="font: bolder 50px 'KaiTi';">这是一个font复合属性示例</h1>
+    <p style="line-height: 40px;">这是一段长文本 这是一段长文本 这是一段长文本 这是一段长文本 这是一段长文本 这是一段长文本 这是一段长文本 这是一段长文本 这是一段长文本 这是一段长文本 这是一段长文本 这是一段长文本 这是一段长文本</p>
+
+    <div class="block">这是一个块元素</div>
+    <div class="block">这是一个块元素</div>
+    <span class="inline">这是一个行内元素</span>
+    <img src="./fence.png" alt="图片加载失败" class="inline-block" >
+    <img src="./fence.png" alt="图片加载失败" class="inline-block" >
+    <img src="./fence.png" alt="图片加载失败" class="inline-block" >
+    
+
+    <br>
+    <br>
+    <div style="display: inline-block;">这是一个行内块元素</div>
+
+    <h2>display</h2>
+    <div class="div-inline">这是一个转换成行内元素的div标签</div>
+    <span class="span-inline-block">这是一个转换成行内块元素的span标签</span>
+
+</body>
+</html>
+
+
+<!-- 
+
+    块级元素负责后在下一行，行内元素负责在同一行，行内块元素负责在同一行，但可以设置宽高和内外边距等块级元素的属性。
+
+    px
+    Pixel 是“图像元素”（Picture Element）的缩写，是屏幕上显示的最小单位。
+
+    <span>	Span	跨度/范围    <span> 是一个行内容器，用于包裹文本或行内元素的一部分
+
+    display	Display	显示/展示
+    display 属性用于控制元素的显示类型，即决定元素在页面上以什么方式呈现——是独占一行，还是与其他元素同行；是可见的，还是隐藏的。
+
+    块元素(block):
+        块级元素通常会从新行开始，并占据整行的宽度。
+        可以包含其他块级元素和行内元素。
+    行内元素(inline）：
+        行内元素通常在同一行内呈现，不会独占一行。
+        它们只占据其内容所需的宽度，而不是整行的宽度。
+        行内元素不能包含块级元素，但可以包含其他行内元素。
+    行内块元素(Inline-block)：
+        水平方向上排列，但可以设置宽度、高度、内外边距等块级元素的属性。
+        行内块元素可以包含其他行内元素或块级元素。
+
+    font	Font	字体（复合属性）
+    line-height	Line Height	行高
+
+    font是一个复合属性，可以同时设置字体的多个方面，如字体大小、字体样式、字体粗细、字体系列等。使用font属性可以简化CSS代码，使得设置字体相关的样式更加方便和高效。
+
+    line-height属性用于设置文本行之间的距离，即行距。它可以接受一个数值、一个长度单位或者一个百分比值。合理设置line-height可以提高文本的可读性和视觉效果。
+-->
