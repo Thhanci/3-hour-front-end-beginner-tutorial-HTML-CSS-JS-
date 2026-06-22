@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 函数</title>
+</head>
+<body>
+    <script>    
+        function hello(){
+            console.log('Hello,world!');
+        }
+
+        hello();
+
+        function hello_with_return(){
+            return 'hello,world! - 返回值'
+        }
+
+        let a=hello_with_return();
+        console.log(a);
+        console.log(hello_with_return());
+
+        function hello_with_params(name){
+            console.log('hello,'+name);
+        }
+
+        hello_with_params('张三');
+        hello_with_params('Alice');
+
+        //作用域 全局作用域 局部作用域
+
+        let global_var ='全局变量'
+        function local_var_function(){
+            let local_var = '局部变量'
+            console.log('函数内打印全局变量: '+global_var);
+            console.log('函数内打印局部变量: '+local_var);
+        }
+
+        local_var_function();
+
+        console.log('函数内打印全局变量: '+global_var);
+        console.log('函数内打印局部变量: '+local_var);
+
+    </script>
+
+</body>
+</html>
+
+
+<!-- 
+
+
+    函数
+    JavaScript 函数
+    函数是一段可重复使用的代码块，它接受输入（参数）、执行特定任务，并返回输出。
+        function function_name(参数1, 参数2, 参数3, ...) { // 参数可以不写，表示不传参
+            // 函数体，执行这里的代码
+            return 返回值; // 可选，返回值
+        }
+            
+
+
+
+    name 是什么类型的变量？
+        name 没有固定类型，它的类型由调用时传入的实参决定。
+
+    为什么 JS 不用写 string name？
+        因为 JavaScript 是弱类型语言，函数参数不需要声明类型：
+
+    对比	         JavaScript	                                  Java / C
+    参数声明	    只写参数名：function hello(name)	        需要写类型：void hello(String name)
+    类型检查	    不检查，传入什么类型就是什么类型	         编译时检查，类型不匹配就报错
+    灵活性	        同一个参数可以接收不同类型的值	               固定类型，不能混用
+    hello_with_params(name)   hello_with_params('如花'); 
+    JavaScript 不会报错，它会把任何类型的值都尝试转成字符串拼接。
+
+-->

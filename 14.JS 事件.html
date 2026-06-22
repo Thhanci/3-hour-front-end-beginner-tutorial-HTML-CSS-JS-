@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件处理</title>
+</head>
+<body>
+    <button onclick="click_event()">这是一个点击事件按钮</button>
+    <input type="text" onfocus="focus_event()" onblur="blur_event()">
+    <script>
+        //点击事件
+        function click_event(){
+            alert('点击事件触发了');
+        }
+
+        function focus_event(){
+            console.log('获取焦点');
+        }
+
+        function blur_event(){
+            console.log('失去焦点');
+        }
+    </script>
+    
+</body>
+</html>
+
+
+
+<!-- 
+
+        事件是文档或浏览器窗口中发生的特定瞬间，例如用户的点击、键盘的按下、
+    页面的加载等。常见的事件如下：
+        事件             描述
+        onClick          点击事件
+        onMouseOver      鼠标经过
+        onMouseOut       鼠标移出
+        onChange         文本内容改变事件
+        onSelect         文本框选中
+        onFocus          光标聚集
+        onBlur           移开光标
+
+
+    事件绑定
+    JavaScript 绑定事件的方法有三种：
+        1. HTML`属性
+        2.DOM属性
+        3.addEventListener方法
+
+    blur  模糊不清的事物  （使）看不清楚
+
+
+    type="text" 是什么意思？
+        type="text" 是 <input> 标签的一个属性，用于指定输入框的类型。
+        type="text" 表示这是一个普通文本输入框，用户可以在里面输入文字、数字、
+        符号等单行内容。
+
+
+    type 的常用参数大全
+    1. 文本类（输入文字）
+        type 值	作用	示例
+        text	普通单行文本输入框	姓名、搜索框
+        password	密码输入框（输入内容自动隐藏为圆点或星号）	登录密码
+        email	邮箱输入框（移动端会调出 @ 键盘）	注册邮箱
+        tel	电话号码输入框（移动端调出数字键盘）	手机号
+        url	网址输入框（自动校验格式）	个人主页
+        search	搜索框（可能带清除按钮）	站内搜索
+    2. 数值类（输入数字）
+        type 值	作用	示例
+        number	数字输入框（可限制范围，有上下调节按钮）	年龄、数量
+        range	滑块选择器（拖动选择范围内的值）	音量控制
+    3. 日期时间类
+        type 值	作用	示例
+        date	日期选择器（年月日）	生日、预约日期
+        time	时间选择器（时分）	闹钟时间
+        datetime-local	本地日期+时间选择器	会议开始时间
+        month	月份选择器（年月）	信用卡有效期
+        week	周选择器（年第几周）	周报选择
+    4. 选择类（勾选/点选）
+        type 值	作用	示例
+        checkbox	复选框（可多选）	爱好选择
+        radio	单选框（一组只能选一个）	性别选择
+    5. 按钮类
+        type 值	作用	示例
+        submit	提交按钮（触发表单提交）	登录/注册按钮
+        reset	重置按钮（清空表单内容）	清空重填
+        button	普通按钮（无默认行为，需配合 JS）	自定义功能按钮
+    6. 文件类
+        type 值	作用	示例
+        file	文件选择器（用于上传文件）	头像上传、附件上传
+    7. 隐藏类
+        type 值	作用	示例
+        hidden	隐藏输入框（不显示，但数据随表单提交）	用户 ID、token
+    8. 颜色类
+        type 值	作用	示例
+        color	颜色选择器（弹出色盘）	主题色选择
+
+
+ -->

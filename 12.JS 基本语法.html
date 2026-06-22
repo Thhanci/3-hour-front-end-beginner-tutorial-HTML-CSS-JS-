@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 基础语法</title>
+</head>
+<body>
+
+    <script>
+        var x;
+        let y=5;
+        const PI=3.14;
+        console.log(x,y,PI);
+        let name = '如花';
+        console.log (name);
+        let empty_value=null;
+        console.log(empty_value);
+
+
+
+        // let age=9;
+        let age = Math.floor(Math.random() * 100) + 1;
+        if(age>18){
+            console.log('你已经成年了');
+        } 
+        else {
+            console.log('未成年');
+        }
+
+
+
+        // let time =22;
+        let now = new Date();
+        console.log(now);
+        let time = new Date().getHours(); 
+        if(time<12){
+            alert('上午好');
+        } 
+        else if (time<18){
+            alert('下午好');
+        }
+        else{
+            alert('晚上好');
+        }
+
+
+        console.log('FOR 循环');
+        for(let i=0;i<=10;i++){
+            console.log(i);
+        }
+
+
+        console.log('while 循环');
+        let count=1;
+        while(count <=10){
+            console.log(count);
+            count++;
+        }
+
+
+        console.log('循环关键字');
+        for(var i=0;i<7;i++){
+            if(i==2){
+                continue;
+            }
+            if(i==4){
+                break;
+            }
+            console.log(i);
+        }
+
+
+
+    </script>
+    
+</body>
+</html>
+
+
+
+<!--
+
+    一般用let而不是var
+        var 是过去式（函数作用域、易出错），
+        let 是现在式（块级作用域、更安全）。
+        在现代化项目中，请只用 let（和 const），完全放弃 var。
+
+    关键字	        全称（英文）	中文含义	                      作用	                                定义	                                                      用法
+    var	            Variable	    变量	                       声明一个变量（ES5及之前的旧方式）	函数作用域，可重复声明，可重新赋值	                               var x = 10;
+    let	            Let	            让/允许（意为“让这个变量存在”）	声明一个块级作用域的变量（ES6 引入）	块级作用域，不可重复声明，可重新赋值	                        let y = 5;
+    const	        Constant	    常量	                        声明一个块级作用域的只读常量（ES6 引入）	块级作用域，不可重复声明，不可重新赋值（但对象属性可改）	const PI = 3.14; 
+
+
+
+    名称	        全称（英文）    	中文含义	        作用	                                        定义	                                            用法
+    undefined	    Undefined	        未定义      	表示变量已被声明但尚未赋值，或对象属性不存在	    JavaScript 的数据类型之一，表示“空的、未定义的”值	let x; console.log(x); // undefined
+    null	        Null	        空/空值	            表示有意缺失的对象值，常用于手动清空变量	        JavaScript 的数据类型之一，表示“有意的空对象引用”	let empty = null;
+
+
+    条件语句
+        条件语句是编程中常用的结构，用于基于不同的条件执行不同的代码块。
+
+    if语句：用于执行一个代码块，当指定的条件为真（true）时执行。语法如下：
+        if (condition) {
+            //如果条件为真，执行这里的代码
+        }
+
+    else语句：用于在上一个if和所有的elseif都为假时执行的代码块。语法如下：
+        if (condition) {
+            //如果条件为真，执行这里的代码
+        } else {
+            //如果条件为假，执行这里的代码
+        }
+
+        elseif语句：用于在上一个if语句条件为假时，检查另一个条件。可以有多个elseif语句。语法如下：
+            if (condition1) {
+                //如果条件1为真，执行这里的代码
+            } else if (condition2) {
+                //如果条件2为真，执行这里的代码
+            } else {
+                //如果以上条件都为假，执行这里的代码
+            }
+
+    new Date().getHours()	获取小时（24小时制）	22
+    new Date().getMinutes()	获取分钟	8
+    new Date().getSeconds()	获取秒	0（或具体秒数）
+
+
+
+    Math.random()	生成一个 0 到 1 之间（包含 0，不包含 1）的随机小数，例如 0.723456...
+    Math.random() * 100	将范围扩大到 0 到 99.999... 之间
+    Math.floor(...)	向下取整，去掉小数部分，得到 0 到 99 的整数
+
+
+    循环语句
+        循环语句用于重复执行一段代码，直到指定的条件不再满足为止。
+
+    for循环：是一种常见的循环结构，用于按照指定的条件重复执行代码块。语法如下：
+    for (初始化表达式；循环条件；迭代器) {
+        //循环体，执行这里的代码
+    }
+
+
+
+    while  循环会在指定的条件为真时执行代码块。语法如下：
+    while（循环条件）{
+    //循环体，执行这里的代码
+    }
+
+
+    break与 continue
+        循环关键字
+            break用于跳出循环，结束循环的执行。
+            continue用于跳过当前循环中的剩余代码，继续下一次循环。
+
+
+
+    // break 示例：遇到 3 就停止
+    int i = 1;
+    while (i <= 5) {
+        if (i == 3) break;
+        printf("%d ", i);
+        i++;
+    }
+    // 输出：1 2
+
+    // continue 示例：遇到 3 就跳过本次，继续下一次
+    int i = 0;
+    while (i < 5) {
+        i++;
+        if (i == 3) continue;
+        printf("%d ", i);
+    }
+    // 输出：1 2 4 5
+
+
+
+    do {
+    printf("===== 菜单 =====\n");
+    printf("1. 开始游戏\n");
+    printf("2. 设置\n");
+    printf("3. 退出\n");
+    printf("请选择：");
+    scanf("%d", &choice);
+    
+    // 根据 choice 执行相应操作
+    } while (choice != 3);  // 选择 3 时退出
+
+
+    int score = 85;
+char grade;
+
+    switch (score / 10) {   // 计算十位数：85/10 = 8
+        case 10:
+        case 9:
+            grade = 'A';
+            break;
+        case 8:
+            grade = 'B';
+            break;
+        case 7:
+            grade = 'C';
+            break;
+        case 6:
+            grade = 'D';
+            break;
+        default:
+            grade = 'F';
+            break;
+    }
+    printf("等级：%c\n", grade);  // 输出：B
+
+
+
+    int num = 2;
+    switch (num) {
+        case 1:
+            printf("一");
+        case 2:
+            printf("二");   // 匹配这里
+        case 3:
+            printf("三");   // 没有 break，继续执行这里
+    }
+    // 输出：二三（而不是只输出 二）
+    所以每个 case 后面都要写 break，除非你有意要穿透。
+
+
+-->

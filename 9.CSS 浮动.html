@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 浮动</title>
+    <style>
+        .father {
+            /* display: inline; */
+            background-color: aquamarine;
+            /* height: 300px; */
+            /* width: 300px; */
+            border: 3px solid brown;
+
+            /* overflow: hidden; 清除浮动 */
+        }
+
+        .father::after {   /*高度坍塌   伪元素，清除浮动*/
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .left-son {
+            background-color: yellowgreen;
+            width: 100px;
+            height: 100px;
+           float: left;
+        }
+        .right-son {
+            background-color: yellow;
+            width: 100px;
+            height: 100px;
+            float: right;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <!-- <h1>这是一个父元素</h1> -->
+        <!-- <p1>这是一个父元素</p1>  -->
+        <!-- <br> -->
+        <!-- <p1>1</p1>  -->
+        <div class="left-son">左浮动</div>
+        <div class="left-son">左浮动</div>
+        <div class="left-son">左浮动</div>
+        <div class="left-son">左浮动</div>
+        <div class="left-son">左浮动</div>
+        <div class="left-son">左浮动</div>
+        <div class="left-son">左浮动</div>
+        <div class="left-son">左浮动</div>
+        <div class="left-son">左浮动</div>
+        <div class="left-son">左浮动</div>
+        <div class="left-son">左浮动</div>
+        <div class="right-son">右浮动</div>
+        <div class="right-son">右浮动</div>
+        <div class="right-son">右浮动</div>
+        <div class="right-son">右浮动</div>
+        <div class="right-son">右浮动</div>
+        <div class="right-son">右浮动</div>
+    </div>
+        <p>这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本</p>
+</body>
+</html>
+
+<!--    
+    ctrl+/ 快速注释
+
+     float: left;  /*左浮动*/     float: right;  /*右浮动*/
+
+    w100+h100 快速生成
+    网页布局方式有以下五种：
+        标准流（普通流、文档流）：网页按照元素的书写顺序依次排列
+        浮动
+        定位
+        Flexbox和'Grid（自适应布局）
+    ‘标准流’是由块级元素和行内元素按照默认规定的方式来排列，块级就是占一行，行内元素一行放好多个元素。
+
+    浮动
+        元素脱离文档流，根据开发者的意愿漂浮到网页的任意方向。
+        浮动属性用于创建浮动框，将其移动到一边，直到左边缘或右边缘触及包含块或另一个浮动框的边缘，这样即
+        可使得元素进行浮动。
+    语法：
+    选择器｛
+    float: left/right/none;
+    }
+    注意：浮动是相对于父元素浮动，只会在父元素的内部移动
+
+    .father::after	选中 class="father" 元素内部的虚拟末尾子元素，这个元素在 HTML 中并不存在，完全由 CSS 创建
+    content: "";	必须写，否则伪元素不显示。空字符串表示不插入任何文字或图标，只创建一个“透明盒子”
+    display: block;	让这个虚拟盒子变成块级元素，独占一行，这样它才能把父元素撑开
+    clear: both;	核心：禁止这个虚拟盒子两侧有浮动元素。由于它位于父元素内容的最后，它会把父元素“撑”到所有浮动元素的下方，从而让父元素包裹住所有浮动的子元素
+
+-->

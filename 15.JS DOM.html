@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DOM</title>
+
+</head>
+<body>
+
+<!--     
+    <br> <br> <br>    <br> <br> <br>    <br> <br> <br>    <br> <br> <br>    <br> <br> <br>      <br> <br> <br>    <br> <br> <br>    <br> <br> <br>    <br> <br> <br>    <br> <br> <br>    <br> <br> <br>
+    <p1> 占位符   </p1> 
+-->
+
+    <div id="box1">这是一个ID选择器标签</div>
+    <div class="box2">这是一个类选择器标签</div>
+    <div>普通的div 标签</div>
+
+    <button>点击按钮</button>
+    <script>    
+        var element_id =document.getElementById('box1');  /*这是接口，你一直改源代码？安全怎么保证？接口统一处理了*/
+        console.log(element_id);
+
+        var element_class=document.getElementsByClassName('box2')[0];
+        console.log(element_class);
+
+        var element_tag=document.getElementsByTagName('div')[2];
+        console.log(document.getElementsByTagName('div'));
+        console.log(document.getElementsByTagName('div')[2]);
+
+        element_id.innerHTML='<a href="#">跳转链接</a>';  /*这是接口，你一直改源代码？安全怎么保证？接口统一处理了*/
+        element_class.innerText='<a href="#">跳转链接</a>';
+
+        element_tag.style.color='red';
+        element_tag.style.fontSize='20px';
+
+        //DOM 属性绑定事件
+        var button_element=document.getElementsByTagName('button')[0];
+        console.log(button_element);
+
+        // button_element.onclick=function(){  //匿名函数
+        //     alert("DOM 属性 按键触发");
+        // }
+
+        // button_element.addEventListener('click',function(){
+        //     alert("通过 addEventListener 触发按键");
+        // })
+
+        button_element.addEventListener('click',click_event);
+        function click_event(){
+            alert("通过 addEventListener 触发按键");
+        }
+
+
+
+    </script>
+
+    <img src="DOM.png" alt="图片加载失败" width="500px"  class="inline-block" 
+    style="display: inline-block;position: relative; top: 100px;left: 100px; background: yellow;">
+
+</body>
+</html>
+
+
+<!-- 
+
+    DOM
+    在Web开发中，DOM通常与JavaScript一起使用。
+    当网页被加载时，浏览器会创建页面的文档对象模型，也就是DOM（Document Object Model）。
+    每个HTML或XML文档都可以被视为一个文档树，文档树是整个文档的层次结构表示。
+    文档节点是整个文档树的根节点。
+    DOM为这个文档树提供了一个编程接口，开发者可以使用JavaScript来操作这个树状结构。 
+
+    ▼HTMLCollection[div.box2]
+    0：div.box2
+    length:1
+    [[Prototype]]:HTMLCollection
+    collection是数组，长度是1
+
+
+    getElementById('box1') 返回的是 id="box1" 的那个 DOM 元素对象（不是数组）（即 div#box1 这个元素本身)，可以直接修改它的内容、样式、属性或绑定事件。如果页面上没有这个 id，返回 null
+
+    href	Hypertext Reference	超文本引用  
+
+    在 JavaScript 中，单引号 ' ' 和双引号 " " 在功能上完全等价，没有区别。你可以根据喜好或团队规范选择，但关键是成对使用和正确转义。
+
+
+        DOM对象常用方法
+    方法              描述
+    appendChild()     把新的子节点添加到指定节点。
+    removeChild()     删除子节点。
+    replaceChild()    替换子节点。
+    insertBefore()    在指定的子节点前面插入新的子节点。
+    createAttribute() 创建属性节点。
+    createElement()   创建元素节点。
+    createTextNode()  创建文本节点。
+    getAttribute()    返回指定的属性值。
+
+
+    addEventListener 是 JavaScript 中用来给 DOM 元素绑定事件的标准方法，可以理解为“当某件事发生时，执行这个函数”。
+    元素.addEventListener('事件类型', 回调函数);
+
+
+    常见事件类型
+    事件类型	触发时机
+    click	鼠标单击
+    dblclick	鼠标双击
+    mouseover	鼠标移入
+    mouseout	鼠标移出
+    keydown	键盘按下
+    keyup	键盘松开
+    focus	获得焦点（如输入框被点击）
+    blur	失去焦点
+    change	内容改变（常用于输入框、下拉菜单）
+    submit	表单提交
+    load	页面或资源加载完成
+
+    Tip:    <img src="DOM.png" alt="图片加载失败" width="500px"  class="inline-block" 
+    style="display: inline-block;position: relative; top: 100px;left: 100px; background: yellow;">
+-->

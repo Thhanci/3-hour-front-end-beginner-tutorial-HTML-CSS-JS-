@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动端 rem 适配原理</title>
+    <style>
+        /* html{
+            font-size: 20px;
+        } */
+
+        .box-px{
+            width: 300px;
+            height: 100px;
+            background-color: blueviolet;
+            margin-bottom: 50px;
+        }
+
+        .box-rem{   /*rem相对于html这个标签来定义长度  */
+            width: 5rem;
+            height: 3rem;
+            background-color: aqua;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="box-px"></div>
+
+    <div class="box-rem"></div>
+
+    <script>
+        //根据设备宽度计算 HTML 标签的 font-size 的属性值，设备宽度/10
+        function resetHtmlFontSize(){
+            // console.log(document.documentElement);
+            document.documentElement.style.fontSize=screen.width/10+'px';
+        }
+
+        resetHtmlFontSize();
+
+        //绑定事件
+        window.onresize=resetHtmlFontSize;
+
+    </script>
+
+</body>
+</html>
+
+
+<!-- 
+
+
+    ### 响应式布局实现方法
+    主流的实现方案有两种：
+    1. 通过 rem、vw/vh 等单位，实现在不同设备上显示相同比例进而实现适配。
+    2. 响应式布局，通过媒体查询 @media 实现一套 HTML 配合多套 CSS 实现适配。
+    ### Viewport
+        了解 VSCode 中自动生成的 head 标签中的 viewport。
+        viewport 可以翻译为视区或者视口，是指浏览器用来显示网页的区域，它决定了网页在用户设备上的显示效果。
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    1. **width=device-width**：将视口的宽度设置为设备的宽度。这确保网页内容不会被缩放，而是按照设备的实际宽度进行布局；
+    2. **initial-scale=1.0**：设置初始的缩放级别为 1.0。这也有助于确保网页在加载时以原始大小显示，而不是被缩小或放大；
+    3. **minimum-scale=1.0**：最小缩放比例为 1；
+    4. **maximum-scale=1.0**：最大缩放比例为 1；
+    5. **user-scalable=no**：不允许用户缩放。
+
+
+    ### Viewport
+
+了解 VSCode 中自动生成的 head 标签中的 viewport。
+
+viewport 可以翻译为视区或者视口，是指浏览器用来显示网页的区域，它决定了网页在用户设备上的显示效果。
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+```
+
+1. **width=device-width**：将视口的宽度设置为设备的宽度。这确保网页内容不会被缩放，而是按照设备的实际宽度进行布局；
+2. **initial-scale=1.0**：设置初始的缩放级别为 1.0。这也有助于确保网页在加载时以原始大小显示，而不是被缩小或放大；
+3. **minimum-scale=1.0**：最小缩放比例为 1；
+4. **maximum-scale=1.0**：最大缩放比例为 1；
+5. **user-scalable=no**：不允许用户缩放。
+
+
+    ### rem
+    在响应式网页与移动端布局时，使用 rem 而不是 px。
+    rem 是一个倍数单位，它是基于 html 标签中的 font-size 属性值的倍数。
+    只要我们在不同的设备上设置一个合适的初始值，当设备发生变化 font-size 就会自动等比适配大小，从而在不同的设备上表现统一。
+
+
+    window.onresize 是什么？
+        window.onresize 是浏览器窗口的一个事件，当窗口大小发生变化时（比如用户拖动边框、旋转手机屏幕、调整浏览器窗口），就会自动触发这个事件。
+
+
+        rem 是 CSS 的相对长度单位，相对于 <html> 根元素的字体大小。
+    通过动态修改 html 的 font-size，可以让所有用 rem 的元素等比缩放，
+    是实现响应式布局的核心工具之一。
+
+
+ -->
